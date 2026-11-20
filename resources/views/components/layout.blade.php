@@ -25,13 +25,6 @@
 
             <nav class="flex flex-wrap items-center gap-4 text-sm">
                 @auth
-                    <a
-                        href="{{ route('books.index') }}"
-                        class="hover:underline"
-                    >
-                        Books
-                    </a>
-
                     <span>
                         Hello, {{ auth()->user()->name }}
                     </span>
@@ -39,9 +32,9 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <button
+                        <button 
                             type="submit"
-                            class="cursor-pointer rounded border border-gray-400 px-3 py-1 hover:bg-gray-100"
+                            class="cursor-pointer rounded border border-gray-400 px-3 py-1 hover:bg-red-100"
                         >
                             Logout
                         </button>
@@ -53,11 +46,21 @@
     </header>
 
     @if (session('success'))
-        <div class="mx-auto max-w-5xl px-4 pt-4">
+        <div class="mx-auto max-w-5xl px-4 pt-4" id="success-message"
+>
             <p class="border border-green-300 bg-green-50 p-3 text-green-800">
                 {{ session('success') }}
             </p>
         </div>
+          <script>
+        setTimeout(function () {
+            const message = document.getElementById('success-message');
+
+            if (message) {
+                message.remove();
+            }
+        }, 3000);
+    </script>
     @endif
 
     <main class="mx-auto max-w-5xl px-4 py-6">
