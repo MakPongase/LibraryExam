@@ -17,6 +17,7 @@
                     <th>Author</th>
                     <th>Description</th>
                     <th>Published Year</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -27,6 +28,23 @@
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->description ?? 'No description' }}</td>
                         <td>{{ $book->published_year }}</td>
+                        <td> <a href="{{ route('books.edit', $book) }}">Edit</a>
+                          <form
+                            method="POST"
+                            action="{{ route('books.destroy', $book) }}"
+                            style="display: inline;"
+                        >
+                            @csrf
+                            @method('DELETE')
+
+                            <button
+                                type="submit"
+                                onclick="return confirm('Are you sure you want to delete this book?')"
+                            >
+                                Delete
+                            </button>
+                        </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

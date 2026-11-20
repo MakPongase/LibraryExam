@@ -23,5 +23,5 @@ Route::post('/logout', Logout::class)
 
     Route::middleware('auth')->group(function () {
     Route::resource('books', BookController::class)
-        ->only(['index', 'create', 'store']);
+    ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 });

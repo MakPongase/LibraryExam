@@ -20,7 +20,7 @@ class Login extends Controller
             $request->session()->regenerate();
 
             return redirect()
-                ->intended(route('home'))
+                ->intended(route('books.index'))
                 ->with('success', 'You have logged in successfully.');
         }
 

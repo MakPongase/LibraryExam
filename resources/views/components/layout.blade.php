@@ -19,9 +19,6 @@
 
         <nav>
           @auth
-            <a href="{{ route('home') }}">Home</a>
-                <a href="{{ route('books.index') }}">Books</a>
-                <a href="{{ route('books.create') }}">Add Book</a>
                 
             <span>Hello, {{ auth()->user()->name }}</span>
 

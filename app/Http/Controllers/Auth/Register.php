@@ -27,7 +27,7 @@ class Register extends Controller
         Auth::login($user);
 
     return redirect()
-        ->route('home')
+        ->route('books.index')
         ->with('success', 'Welcome to the Library Management System!');
     }
 }
