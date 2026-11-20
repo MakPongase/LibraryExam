@@ -9,10 +9,7 @@
 @theme {
     --font-sans: system-ui, arial
 }
-body {
-    margin: 20px;
-    font-family: Arial, sans-serif;
-}
+
 
 .site-header {
     border-bottom: 1px solid #999;
