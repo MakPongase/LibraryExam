@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\Auth\Logout;
 use App\Http\Controllers\Auth\Register;
+use App\Http\Controllers\BookController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'landingpage')->name('home');
@@ -18,3 +20,8 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', Logout::class)
     ->middleware('auth')
     ->name('logout');
+
+    Route::middleware('auth')->group(function () {
+    Route::resource('books', BookController::class)
+        ->only(['index', 'create', 'store']);
+});

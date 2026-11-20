@@ -18,8 +18,12 @@
         </h1>
 
         <nav>
-            @auth
-                <span>Hello, {{ auth()->user()->name }}</span>
+          @auth
+            <a href="{{ route('home') }}">Home</a>
+                <a href="{{ route('books.index') }}">Books</a>
+                <a href="{{ route('books.create') }}">Add Book</a>
+                
+            <span>Hello, {{ auth()->user()->name }}</span>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
